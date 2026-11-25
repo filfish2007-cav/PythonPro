@@ -1,4 +1,14 @@
-def traffic_light(color):
+def traffic_light_if(color: str):
+    if color == "red":
+        print("Stop")
+    elif color == "green":
+        print("Go")
+    elif color == "yellow":
+        print("Wait")
+    else:
+        print("unknown color")
+
+def traffic_light_match(color: str):
     match color:
         case "red":
             print("Stop")
@@ -6,16 +16,14 @@ def traffic_light(color):
             print("Go")
         case "yellow":
             print("Wait")
+        case _:
+            print("unknown color")
 
+color = input("Enter traffic light color (red, green, yellow): ").strip().lower()
 
-while True:
-    try:
-        color = input("Enter a color: ").strip().lower()
-        if color != "red" and color != "green" and color != "yellow":
-            raise ValueError("it is not a valid color should be red, green or yellow")
+print("Варіант if/elif/else:")
+traffic_light_if(color)
 
-        traffic_light(color)
-
-    except ValueError as e:
-        print(f"Error: {e}")
+print("Варіант match/case:")
+traffic_light_match(color)
 
